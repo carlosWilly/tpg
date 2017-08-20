@@ -1,0 +1,73 @@
+<?php $this->layout('heritage/appHeritage') ?>
+
+<?php $this->start('header') ?>
+  <?= $this->insert('overall/apptopmenu',['top'=>$menuTop]) ?>
+   
+<?php $this->stop() ?>
+<?php $this->start('container') ?>
+  <div class="col-xs-4">
+  	 <div class="panel panel-default shadow-grall b-blue white">
+  	 	<div class="panel-body">
+  	 		<center>
+  	 			<h1 style="font-size: 200px;"> 3</h1>
+  	 			<h1 style="font-size: 60px;">Free</h1>
+	         	<h1 style="font-size: 60px;">Months</h1>
+	         	<button id="complete0" class="btn btn-default btn-lg btn-block"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> Continue</button>
+  	 		</center>	
+  	 	</div>
+  	 </div>
+  </div>
+  <div class="col-xs-8">
+  	 <div class="panel panel-default shadow-grall">
+  	 	<div class="panel-body">
+  	 		<legend>
+  	 			 <h1><?= ucwords($_SESSION[SESS_APP_ID]['u_name']) ?> :</h1>
+                 <h3>Congratulations: Unlimited distribution of all our services, in the place and at any time you want. Find that special person for you; We will help you. once more ... welcome.</h3>
+  	 		</legend>
+
+  	 		          <div class="col-xs-12 col-sm-4 col-md-6 text-center">
+		               <div class="img-circle text-center jc-circle-80 b-purple white">
+		                   <i class="fa fa-picture-o fa-2x"></i>
+		               </div><b>Photos</b>
+		              </div>
+		              <div class="col-xs-12 col-sm-4 col-md-6 text-center">
+		                <div class="img-circle text-center jc-circle-80 b-greena white">
+		                <i class="fa fa-comments-o fa-2x"></i>
+		                </div> <b>Messages</b>
+		              </div>
+		              <div class="col-xs-12 col-sm-4 col-md-6 text-center">
+		                <div class="img-circle text-center jc-circle-80 b-blue white">
+		                   <i class="fa fa-users fa-2x"></i>
+		                </div> <b>Friendchat</b>
+		              </div>
+		              <div class="col-xs-12 col-sm-4 col-md-6 text-center">
+		                <div class="img-circle text-center jc-circle-80 b-yellowa white">
+		                   <i class="fa fa-star fa-2x"></i>
+		                </div> <b>Favorites</b>
+		              </div>
+		              <div class="col-xs-12 col-sm-4 col-md-6 text-center">
+		                <div class="img-circle text-center jc-circle-80 b-red white">
+		                   <i class="fa fa-heart fa-2x"></i>
+		                </div> <b>Test Matching</b>
+		               </div>
+		               <div class="col-xs-12 col-sm-4 col-md-2">
+		               	
+		               </div>
+		               <div class="clearfix"></div>
+  	 	</div>
+  	 </div>
+  </div>
+
+ <div >
+
+  <script type="text/javascript">
+  	$('#complete0').on('click',function(event) {
+    event.preventDefault();
+    $.post('ajcode/register/complete0',{foo:'all'}).done(function(json){
+    var obj = $.parseJSON(json);
+    if (obj.success==1) location.reload();
+    });
+  });
+
+  </script>
+<?php $this->stop() ?>

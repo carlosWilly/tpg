@@ -1,0 +1,60 @@
+
+<?php $this->layout('heritage/appHeritage',['osearch'=>$osearch]) ?>
+<?php $this->start('styles') ?>
+  <link rel="stylesheet" href="views/popup/css/magnific-popup.css">
+<?php $this->stop() ?>
+
+<?php $this->start('header') ?>
+  <?= $this->insert('overall/apptopmenu',['top'=>$menuTop]) ?>
+   
+<?php $this->stop() ?>
+   
+<?php $this->start('container') ?>
+   
+  <div class="" id="content-data" style="background-color: transparent;overflow: hidden;">
+      <section id="jcode-profile-info" style="padding:20px;">
+      <div class="col-xs-12 col-sm-3">
+        <div class="thumbnail bg-img shadow-grall j-cursor text-center" id="jcode-photoPerfil" style="border:4px solid white;width: 170px;height: 170px;background-color: white;background-image: url(views/assets/images/users/<?= $_SESSION[SESS_APP_ID]['u_img'] ?>)"></div>
+      </div>
+      <div class="col-xs-12 col-sm-9">
+      <br>
+        <h2><?= $_SESSION[SESS_APP_ID]['u_name']?></h2>
+        <h4><?= $_SESSION[SESS_APP_ID]['u_email']?></h4>
+        <a href="setup" class="btn btn-default"><i class="fa fa-cog" aria-hidden="true"></i> Setup</a>
+        <a href="eprofile" class="btn btn-default"><i class="fa fa-user" aria-hidden="true"></i> Edit Profile</a>
+        <a href="blacklist" class="btn btn-default"><i class="fa fa-user-secret" aria-hidden="true"></i> My BlackList</a>
+        <button class="btn btn-default hidden-md hidden-lg" id="jcode-searchOptions-csetup"><i class="fa fa-search" aria-hidden="true"></i> Edit my search options</button>
+      </div>
+      <div class="col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-body" id="pone_eprofile">
+              <table class="table table-striped">
+               <thead>
+                 <tr>
+                   <th colspan="3">General account settings</th>
+                 </tr>
+               </thead>
+               <tbody>
+
+                 <tr><td>Names:</td><td><span id="u_name"><?= $data[0]['u_nombres'] ?></span> <span id="u_lastname"><?= $data[0]['u_apellidos'] ?></span></td><td><button class="jc-setup btn-sm btn btn-info" data="1">Editar</button></td></tr>
+                 <tr><td>Email:</td><td><span id="u_email"><?= $data[0]['u_email'] ?></span></td><td><button class="jc-setup btn-sm btn btn-info" data="2">Editar</button></td></tr>
+                 <tr><td>Password:</td><td>************</td><td><button class="jc-setup btn-sm btn btn-info" data="3">Editar</button></td></tr>
+                 <tr><td>Gender:</td><td><span id="u_sexo" data="<?= $data[0]['u_sexo'] ?>"><?= $data[0]['ge_name'] ?></span></td><td><button class="jc-setup btn-sm btn btn-info" data="4">Editar</button></td></tr>
+                 <tr><td>Birthday:</td><td><span id="u_fecnac" data="'+user.u_horan+'"><?= $data[0]['u_fecnac'] ?></span></td><td><button class="jc-setup btn-sm btn btn-info" data="5">Editar</button></td></tr>
+               </tbody>
+             </table>
+          </div>
+        </div>
+      </div>
+      </section>
+  </div>
+
+
+   
+<?php $this->stop() ?>
+
+<?php $this->start('scripts') ?>
+  <!-- Magnific Popup core JS file -->
+  <script src="views/app/js/setup.js?<?php echo time(); ?>"></script>
+  <script src="views/popup/js/jquery.magnific-popup.min.js"></script>
+<?php $this->stop() ?>

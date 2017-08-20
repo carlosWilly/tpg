@@ -1,0 +1,127 @@
+
+<?php $this->layout('heritage/appHeritage',['osearch'=>$osearch]) ?>
+<?php $this->start('styles') ?>
+  <link rel="stylesheet" href="views/popup/css/magnific-popup.css">
+  <script type="text/javascript"> var portada=null;</script>
+<?php $this->stop() ?>
+
+<?php $this->start('header') ?>
+  <?= $this->insert('overall/apptopmenu',['top'=>$menuTop]) ?>
+   
+<?php $this->stop() ?>
+   
+<?php $this->start('container') ?>
+
+  <div id="content-data">
+      <div class="col-xs-4" style="padding: 5px;">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <center>
+              <div class="bg-img img-circle" style="background-image:url(views/assets/images/users/<?= $data[0]['p_uimg']?>);width: 150px;height: 150px;"></div>
+               <br>
+            <!--iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii-->
+             <center>
+             <p><b id="u_name"><?= $data[0]['p_name'] ?></b></p>
+             <?php if ($token != $_SESSION[SESS_APP_ID]['u_id']): ?>
+             <ul style="list-style: none;margin: 0; padding: 0;">
+               <li style="display: inline-table;"><a href="profile/<?= $token ?>"><div class="btn-circle b-blue white" data-toggle="tooltip" data-placement="bottom" title="Cover page"><i class="fa fa-home" aria-hidden="true"></i></div></a></li>
+               <li style="display: inline-table;"><a href="info/<?= $token ?>"><div class="btn-circle b-blue white" data-toggle="tooltip" data-placement="bottom" title="Information"><i class="fa fa-user" aria-hidden="true"></i></div></a></li>
+               <li style="display: inline-table;"><a href="photos/<?= $token ?>"><div class="btn-circle b-blue white" data-toggle="tooltip" data-placement="bottom" title="Photos"><i class="fa fa-camera" aria-hidden="true"></i></div></a></li>
+               <li style="display: inline-table;"><div id="jcode-profile-favoritos"  data-token="<?= $token ?>" class="btn-circle b-blue white" data-toggle="tooltip" data-placement="bottom" title="Add to your favorites"><i class="fa fa-heart" aria-hidden="true"></i></div></li>
+               <li style="display: inline-table;"><div id="jcode-profile-chat" data-token="<?= $token ?>" class="btn-circle b-blue white" data-toggle="tooltip" data-placement="bottom" title="Start a conversation"><i class="fa fa-comments-o" aria-hidden="true"></i></div></li>
+               <li style="display: inline-table;"><div  data-token="<?= $token ?>" class="btn-circle b-redb white" data-toggle="tooltip" data-placement="bottom" title="Compatibility test"><i class="fa fa-question" aria-hidden="true"></i></div></li>
+             </ul>
+              <?php endif ?>
+             </center>
+            <!--iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii-->
+            
+            <h2><?= $data[0]['p_zname'] ?></b></h2>
+            <img src="views/assets/images/zodiacal/<?= $data[0]['p_zicon'] ?>" class="img-circle" width="60">
+            <br>
+            <p><b><?= $data[0]['p_age'] ?> years Old</b></p>
+            <p><b><?= $data[0]['p_fnac'] ?> Birthday</b></p>
+            <p class="yellowa"><b><?= $data[0]['p_pais'].'/'.$data[0]['p_state'].'/'.$data[0]['p_city'] ?></b>
+            <?php if ($token == $_SESSION[SESS_APP_ID]['u_id']): ?>
+                    <i id="jcode-edit-place" class="fa fa-pencil-square-o bluea j-cursor txt-xs"></i>
+             <?php endif ?></p>
+            <hr>
+            <h3>About me: 
+                <?php if ($token == $_SESSION[SESS_APP_ID]['u_id']): ?>
+                        <i id="jcode-edit-description" class="fa fa-pencil-square-o fa-lg bluea j-cursor txt-xs"></i>
+                <?php endif ?>
+            </h3>
+            <p><?= $data[0]['p_descrip'] ?></p>
+
+            </center><br>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-8">
+          <div class="col-xs-6" style="padding: 5px;">
+             <div class="panel panel-default">
+               <div class="panel-body">
+                <legend>FORMATION
+                  <?php if ($token == $_SESSION[SESS_APP_ID]['u_id']): ?>
+                    <i id="jcode-edit-formacion" class="fa fa-pencil-square-o bluea j-cursor txt-xs pull-right"></i>
+                  <?php endif ?></p>
+                </legend>
+                <p><b>I study in:</b> <small><?= $data[0]['fm_escuela'] ?></small></p>
+                <p><b>Period:</b> <small><?= $data[0]['fm_periodo_ini'].'--'.$data[0]['fm_periodo_end'] ?></small></p>
+                <p><b>Culminated:</b> <small><?= $data[0]['fm_terminado']==1 ? "Pendent" : "Culminated" ?></small></p>
+                <p><b>Profesion:</b> <small><?= $data[0]['fm_carrera'] ?></small></p>
+               </div>
+             </div>
+          </div>
+          <div class="col-xs-6" style="padding: 5px;">
+             <div class="panel panel-default">
+               <div class="panel-body">
+                 <legend>OCCUPATION
+                   <?php if ($token == $_SESSION[SESS_APP_ID]['u_id']): ?>
+                    <i id="jcode-edit-empleo" class="fa fa-pencil-square-o bluea j-cursor txt-xs pull-right"></i>
+                  <?php endif ?></p>
+                 </legend>
+                 <p><b>Job in:</b> <small><?= $data[0]['emp_empresa'] ?></small></p>
+                <p><b>Occupation:</b> <small><?= $data[0]['emp_cargo'] ?></small></p>
+                <p><b>In the city:</b> <small><?= $data[0]['emp_ciudad'] ?></small></p>
+                <p><b>Describe your Job:</b> <small><?= $data[0]['emp_descripcion'] ?></small></p>
+               </div>
+             </div>
+          </div>
+          <div class="col-xs-12" style="padding: 5px;">
+             <div class="panel panel-default">
+               <div class="panel-body">
+                <legend>MY HOROSCOPE</legend>
+                <div class="media">
+                  <div class="media-left" style="width: 15%"><center><i class="fa fa-gratipay fa-3x reda"></i><br><b>LOVE</b></center></div>
+                  <div class="media-body">Este jueves la Luna está en Cáncer y los planetas Mercurio, Saturno, Urano, Neptuno y el planetoide Plutón siguen retrógrados. No dejes que nada perturbe tu tranquilidad mental ni tu presencia de ánimo. </div>
+                </div>
+                <hr>
+                <div class="media">
+                  <div class="media-left" style="width: 15%"><center><i class="fa fa-medkit fa-3x bluea"></i><br><b>HEALTH</b></center></div>
+                  <div class="media-body">Este jueves la Luna está en Cáncer y los planetas Mercurio, Saturno, Urano, Neptuno y el planetoide Plutón siguen retrógrados. No dejes que nada perturbe tu tranquilidad mental ni tu presencia de ánimo. </div>
+                </div>
+                <hr>
+                <div class="media">
+                  <div class="media-left" style="width: 15%"><center><i class="fa fa-pie-chart fa-3x yellowa"></i><br><b>WORK</b></center></div>
+                  <div class="media-body">Este jueves la Luna está en Cáncer y los planetas Mercurio, Saturno, Urano, Neptuno y el planetoide Plutón siguen retrógrados. No dejes que nada perturbe tu tranquilidad mental ni tu presencia de ánimo. </div>
+                </div>
+                <hr>
+                <div class="media">
+                  <div class="media-left" style="width: 15%"><center><i class="fa fa-usd fa-3x purple"></i><br><b>MONEY</b></center></div>
+                  <div class="media-body">Este jueves la Luna está en Cáncer y los planetas Mercurio, Saturno, Urano, Neptuno y el planetoide Plutón siguen retrógrados. No dejes que nada perturbe tu tranquilidad mental ni tu presencia de ánimo. </div>
+                </div>
+
+               </div>
+             </div>
+          </div>
+      </div>
+      <div class="clearfix"></div>
+  </div>
+<?php $this->stop() ?>
+
+<?php $this->start('scripts') ?>
+  <!-- Magnific Popup core JS file -->
+  <script src="views/app/js/profile.js?<?= time() ?>"></script>
+  <script src="views/popup/js/jquery.magnific-popup.min.js"></script>
+<?php $this->stop() ?>

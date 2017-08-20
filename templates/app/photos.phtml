@@ -1,0 +1,124 @@
+
+<?php $this->layout('heritage/appHeritage',['osearch'=>$osearch]) ?>
+<?php $this->start('styles') ?>
+  <link rel="stylesheet" href="views/popup/css/magnific-popup.css">
+<?php $this->stop() ?>
+
+<?php $this->start('header') ?>
+  <?= $this->insert('overall/apptopmenu',['top'=>$menuTop]) ?>
+   
+<?php $this->stop() ?>
+   
+<?php $this->start('container') ?>
+   
+
+    <div id="content-data">
+      <div class="col-xs-4" style="padding: 5px;">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <center>
+              <div class="bg-img img-circle" style="background-image:url(views/assets/images/users/<?= $data[0]['p_uimg']?>);width: 150px;height: 150px;"></div>
+               <br>
+            <p><b id="u_name"><?= $data[0]['p_name'] ?></b></p>
+            <?php if ($token != $_SESSION[SESS_APP_ID]['u_id']): ?>
+             <ul style="list-style: none;margin: 0; padding: 0;">
+               <li style="display: inline-table;"><a   href="profile/<?= $token ?>"><div class="btn-circle b-blue white" data-toggle="tooltip" data-placement="bottom" title="Cover page"><i class="fa fa-home" aria-hidden="true"></i></div></a></li>
+               <li style="display: inline-table;"><a   href="info/<?= $token ?>"><div class="btn-circle b-blue white" data-toggle="tooltip" data-placement="bottom" title="Information"><i class="fa fa-user" aria-hidden="true"></i></div></a></li>
+               <li style="display: inline-table;"><a   href="photos/<?= $token ?>"><div class="btn-circle b-blue white" data-toggle="tooltip" data-placement="bottom" title="Photos"><i class="fa fa-camera" aria-hidden="true"></i></div></a></li>
+               <li style="display: inline-table;"><div id="jcode-profile-favoritos"  data-token="<?= $token ?>" class="btn-circle b-yellowa white" data-toggle="tooltip" data-placement="bottom" title="Add to your favorites"><i class="fa fa-heart" aria-hidden="true"></i></div></li>
+               <li style="display: inline-table;"><div id="jcode-profile-chat" data-token="<?= $token ?>" class="btn-circle b-greena white" data-toggle="tooltip" data-placement="bottom" title="Start a conversation"><i class="fa fa-comments-o" aria-hidden="true"></i></div></li>
+               <li style="display: inline-table;"><div id="" data-token="<?= $token ?>" class="btn-circle b-redb white" data-toggle="tooltip" data-placement="bottom" title="Compatibility test"><i class="fa fa-question" aria-hidden="true"></i></div></li>
+             </ul>
+              <?php endif ?>
+            <h2><?= $data[0]['p_zname'] ?></b></h2>
+            <img src="views/assets/images/zodiacal/<?= $data[0]['p_zicon'] ?>" class="img-circle" width="60">
+            <br>
+            <p><b><?= $data[0]['p_age'] ?> years Old</b></p>
+            <p><b><?= $data[0]['p_fnac'] ?> Birthday</b></p>
+            <p class="yellowa"><b><?= $data[0]['p_pais'].'/'.$data[0]['p_state'].'/'.$data[0]['p_city'] ?></b>
+            
+                   
+          
+            <hr>
+            <h3>About me: 
+            </h3>
+            <p><?= $data[0]['p_descrip'] ?></p>
+
+            </center><br>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-8">
+         <!--uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu-->
+          <div  class="bg-img" style="height:250px;background-image: url(<?='views/assets/images/users/'.$data[0]['p_image'].'' ?>)">
+          </div>
+          <br>
+          <legend>MY GALERY  <?php if ($_SESSION[SESS_APP_ID]['u_id']==$token): ?><a class="btn-load-photos j-cursor"><span class="pull-right"><i class="fa fa-camera reda" aria-hidden="true"></i> <small>ADD A PHOTO</small></span></a> <?php endif ?></legend>
+          <?php if (count($photos['data'])>=1): ?>
+                        <?php foreach ($photos['data'] as $p): ?>
+                          <div class="col-xs-12 col-sm-6 col-md-4 jc-photo-user-p" style="padding:5px;" >
+                            <?php if ($_SESSION[SESS_APP_ID]['u_id']==$token): ?>
+                            <div class="dropdown" style="display: none">
+                              <button id="dLabel" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="position: absolute;" data-toggle="tooltip" data-placement="left" title="Edit or delete">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dLabel" style="position: absolute;top:40px;">
+                                <li><a href="#" id="jc-selecPhotoPortada" data="<?= $p['iu_id']?>">Select as cover photo</a></li>
+                                <li><a href="#" id="jc-selecPhotoPerfil" data="<?= $p['iu_id']?>">Select as profile photo</a></li>
+                                <li><a href="#" id="jc-delete-photo"  data="<?= $p['iu_id']?>">Delete image</a></li>
+                              </ul>
+                            </div>
+                            <?php endif ?>
+                            <a href="views/assets/images/users/<?= $p['iu_img'] ?>" class="gallery-item">
+                               <div class="bg-img thumbnail" style="width: 100%;height: 200px;background-image: url('views/assets/images/users/<?= $p['iu_img'] ?>')"></div>
+                            </a>
+                          </div>
+                        <?php endforeach ?>
+                    <?php else: ?>
+                      <div class="media">
+                        <div class="media-left media-middle">
+                          <i class="fa fa-picture-o fa-5x" aria-hidden="true"></i>
+                        </div>
+                        <div class="media-body">
+                          <br>
+                          <h4 class="media-heading"><?= $photos['message'] ?></h4>
+                        </div>
+                      </div>
+                    <?php endif ?>
+         <!--uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu-->
+      </div>
+      <div class="clearfix"></div>
+    </div>
+<?php $this->stop() ?>
+
+<?php $this->start('scripts') ?>
+  <!-- Magnific Popup core JS file -->
+  <script src="views/app/js/profile.js"></script>
+  <script src="views/popup/js/jquery.magnific-popup.min.js"></script>
+  <script type="text/javascript">
+      $(document).ready(function(){
+
+      $('.gallery-item').magnificPopup({
+        type: 'image',
+         
+            preloader: true,
+            gallery: {
+          enabled: true, // set to true to enable gallery
+
+          preload: [0,2], // read about this option in next Lazy-loading section
+
+          navigateByImgClick: true,
+
+          arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>', // markup of an arrow button
+
+          tPrev: 'Previous (Left arrow key)', // title for left button
+          tNext: 'Next (Right arrow key)', // title for right button
+          tCounter: '<span class="mfp-counter">%curr% of %total%</span>' // markup of counter
+        }
+      });
+  });
+  </script>
+
+<?php $this->stop() ?>

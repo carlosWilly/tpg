@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <base href="<?= URL ?>" />
+    <title>PLAYGROUND | </title>
+    <!--meta standard-->
+    <meta name="description" content="">
+    <meta name="author"      content="<">
+
+    <!-- Open Graph data -->
+    <meta property="og:title"       content="" />
+    <meta property="og:type"        content="" />
+    <meta property="og:url"         content="" />
+    <meta property="og:image"       content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name"   content="" />
+
+    <!-- Bootstrap Core CSS -->
+    <link href="views/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="views/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="views/app/css/generales.css?<?= time() ?>" rel="stylesheet">
+    <link href="views/app/css/template.css?<?= time() ?>" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="views/jquery/jquery.js"></script>
+    <?php if (isset($_SESSION[SESS_APP_ID])): ?>
+        <script type="text/javascript">
+          var toke_main = '<?= $_SESSION[SESS_APP_ID]['u_id']  ?>';
+          var mage_main = '<?= $_SESSION[SESS_APP_ID]['u_img'] ?>';
+          var name_main = '<?= $_SESSION[SESS_APP_ID]['u_name'] ?>';
+        </script>
+    <?php endif ?>
+    
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<?= $this->section('styles') ?>
+</head>
+<body>
+	<header>
+		<?= $this->section('header') ?>
+	</header>
+    <section>
+       <div class="container-fluid" >
+           <div class="row" ><br><br><br>
+
+                <div id="jcode-container-profile" class="<?= isset($ruter) ? 'hide' : ''   ?>" >
+                   <?php 
+                     if ($_SESSION[SESS_APP_ID]['u_data_profile']=='INCOMPLETE') {
+                       $show='hide';
+                       $centerContent='12';
+                     }else{
+                       $show='';
+                       $centerContent='9';
+                     }
+                    ?>
+                   <!--panel-side-left-->
+                   <div class="hidden-xs col-xs-1 shadow-grall <?= $_SESSION[SESS_APP_ID]['u_data_profile']=='INCOMPLETE' ? "hidden" : ""?>" style="position: relative;width: 60px;" >
+                        <div style="height: 100%;width: inherit;position:fixed;background-color: #111111;left: 0;" id="jc_barLeft">
+                           <div class="col-xs-12" style="background-color: transparent;padding: 5px;">
+                             <?= $this->insert('overall/appleftmenu') ?>
+                           </div>
+                        </div>
+                   </div>
+                   <!--end panel-side-left-->
+
+
+
+                   <!--panel-center-->
+                   <div class="col-xs-12 col-xs-9" style="position: relative;" >
+                        <div style="background: transparent;overflow:hidden;width: 100%;position:absolute;left: 0;right: 0;" id="jc_barCenter">
+                          <div class="col-xs-12" style="padding: 5px;">
+                            <?= $this->section('container') ?>
+                            <div class="col-xs-12 col-xs-offset-0 col-sm-6 col-sm-offset-5 col-md-4 col-md-offset-5 col-lg-3 col-lg-offset-6" id="jcode-contentBoxChat" style="position:fixed;bottom:0px;background: transparent;z-index:100;">
+                               <?= $this->insert('overall/boxchat') ?>
+                            </div>
+                          </div>
+                        </div>
+                   </div>
+                   <!--end-panel-center-->
+
+
+
+                  <!--panel-sideright-->
+                   <div  class="col-xs-2  <?= $_SESSION[SESS_APP_ID]['u_data_profile']=='INCOMPLETE' ? "hidden" : ""?>" style="position: relative;" >
+                      <div class="white" style="height: 100%;position:fixed;background-color: transparent;width: inherit;right: 0;" id="jc_barRight">
+                          <?= $this->insert('overall/apprightmenu') ?>
+                       </div>
+                   </div>
+                   <!--end-side-right-->
+
+
+                </div><!--div ajax-->
+                <?= $this->section('single')?>
+
+
+                <!--modals-->
+                <div class="modal fade" id="jcode-modal-multiple">
+                  <div class="modal-dialog" id="modal-width" >
+                    <div id="modal-content" class="modal-content">
+                      <div class="modal-body" id="jcode-modal-content">
+
+                      </div>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                <!--modals-->  
+                <?= $this->insert('overall/modalNotifications')?>
+                <?= $this->insert('overall/modalFavoritos')?>      
+           </div>
+       </div>
+    </section>
+
+	<!-- Bootstrap Core JavaScript -->
+    <script src="views/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <!-- Theme JavaScript -->
+    <script src="views/app/js/functionsSocket.js?<?= time() ?>"></script>
+    <script src="views/app/js/chat.js?<?= time() ?>"></script>
+    <script src="views/app/js/helperMain.js?<?= time() ?>"></script>
+    <script src="views/app/js/generales.js?<?= time() ?>"></script>
+    <script src="views/app/js/Connection.js?<?= time() ?>"></script>
+    <script src="views/app/js/chat.js?<?= time() ?>"></script>
+    <script src="views/app/js/app.js?<?= time() ?>"></script>
+    <script src="views/app/js/search.js?<?= time() ?>"></script>
+   
+    <script src="views/app/js/photos.js?<?= time() ?>"></script>
+    <script src="views/app/js/topMenu.js?<?= time() ?>"></script>
+    
+    <script src="views/app/js/topMovil.js?<?= time() ?>"></script>
+    <script src="views/app/js/blacklist.js?<?= time() ?>"></script>
+    <script   src = "http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js" ></script> 
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXyWZhBuHgvIDIwvs83HTh8z1YkxOA-J0&libraries=places" async defer></script>-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXyWZhBuHgvIDIwvs83HTh8z1YkxOA-J0&libraries=places"></script>
+    <?= $this->section('scripts') ?> 
+    <!-- jquery.nicescroll.min -->
+    <script src="views/nicescroll/jquery.nicescroll.min.js?<?= time() ?>"></script>
+    <script>
+      var session = "<?= $_SESSION[SESS_APP_ID]['u_id'] ?>";
+    </script>
+   
+</body>
+</html>

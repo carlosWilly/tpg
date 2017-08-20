@@ -1,0 +1,60 @@
+<?php $this->layout('heritage/heritage') ?>
+<?php $this->start('styles') ?>
+   <!-- REVOLUTION STYLE SHEETS -->
+    <link rel="stylesheet" type="text/css" href="views/revolution/css/settings.css">
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link rel="stylesheet" type="text/css" href="views/revolution/css/layers.css">
+    <!-- REVOLUTION NAVIGATION STYLES -->
+    <link rel="stylesheet" type="text/css" href="views/revolution/css/navigation.css">
+<?php $this->stop() ?>
+
+
+<?php $this->start('header') ?>
+     <?= $this->insert('overall/topmenu')?>
+<?php $this->stop() ?>
+
+
+<?php $this->start('container') ?>
+  <div id="jcode-container-front" class="bg-img">
+     <?= $this->insert('overall/slider') ?>
+
+     <div class="modal fade" id="jcode-lostModal">
+        <div class="modal-dialog modal-sm">
+          <div id="modal-content" class="modal-content">
+            <div class="modal-body" id="modal-body">
+                <form role="form" enctype="application/x-www-form-urlencoded" id="lostpass_form">
+                  <div class="alert hide" id="ajax_lostpass"></div>
+                  <div class="form-group">
+                    <label>Enter your email to retrieve your password:</label><br><br>
+                    <input type="text" name="user-email" class="form-control" required="" /><br>
+                    <center>
+                       <button class="btn btn-primary"> Confirm</button>
+                       <a data-dismiss="modal" class="btn btn-default">Cancel</a>
+                    <center>
+                  </div>
+                </form> 
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!--modals-->
+  </div>
+<?php $this->stop() ?>
+
+
+
+<?php $this->start('scripts') ?>
+  <!-- REVOLUTION JS FILES -->
+  <script type="text/javascript"> var oauthFace = "<?= $oauthFace ?>";var oauthIn = "<?= $oauthIn ?>";</script>
+  <script type="text/javascript" src="views/app/js/login.js?<?= time() ?>"></script>
+  <!-- REVOLUTION JS FILES -->
+  <script type="text/javascript" src="views/revolution/js/jquery.themepunch.tools.min.js"></script>
+  <script type="text/javascript" src="views/revolution/js/jquery.themepunch.revolution.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXyWZhBuHgvIDIwvs83HTh8z1YkxOA-J0&libraries=places"
+        async defer></script>
+<?php $this->stop()  ?>
+
+<!--
+
+
+-->

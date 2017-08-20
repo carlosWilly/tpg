@@ -1,0 +1,63 @@
+
+<?php if ($_SESSION[SESS_APP_ID]['u_id'] != $token): ?>
+  <div id="jcode-menu-user-sub" class="" style="background-color: #111111;overflow: hidden;padding:0px;border-top:4px solid #eee;position:fixed;bottom:0;z-index:1;">
+      
+      <div class="hidden-xs col-xs-12 col-sm-2 zero-padding jc-mu" >
+              <a href="profile/<?= $token  ?>" class="jc-a">
+                <div class="jcode-profile-button-single c-marron shadow-grall">
+                   <i class="fa-2x fa fa-home" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Information"></i>
+                </div>
+              </a>   
+        </div>
+
+       <div class="hidden-xs col-xs-12 col-sm-2 zero-padding jc-mu">
+              <a href="info/<?= $token  ?>" class="jc-a" >
+                <div class="jcode-profile-button-single c-marron shadow-grall">
+                   <i class="fa-2x fa fa-info-circle" aria-hidden="true"></i>
+                </div>
+              </a>   
+        </div>
+
+        <div class="hidden-xs col-xs-12 col-sm-2 zero-padding jc-mu">
+              <a href="photos/<?= $token  ?>" class="jc-a">
+                <div class="jcode-profile-button-single c-marron shadow-grall">
+                   <i class="fa-2x fa fa-picture-o" aria-hidden="true"></i>
+                </div>
+              </a>    
+        </div>
+
+        <div class="hidden-xs col-xs-12 col-sm-2 zero-padding jc-mu">
+              <a href="#chat" class="jc-a jcode-profile-chat" data="<?= $data['p_id']?>" data-type="single">
+                <div class="jcode-profile-button-single c-marron shadow-grall">
+                   <i class="fa-2x fa fa-comments" aria-hidden="true"></i>
+                </div>
+              </a>    
+        </div>
+
+        <div class="hidden-xs col-xs-12 col-sm-2 zero-padding jc-mu">
+              <a href="#fav" class="jc-a jcode-profile-favoritos" data="<?= $data['p_id']?>" data-type="single" data-img="<?= $data['p_id']?>">
+                <div class="jcode-profile-button-single c-marron  shadow-grall">
+                    <i class="fa-2x fa fa-star" aria-hidden="true"></i>
+                </div>
+              </a>      
+        </div>
+
+        <div class="hidden-xs col-xs-12 col-sm-2 zero-padding jc-mu">
+              <a  class="jc-a j-cursor" data="<?= $data['p_id']?>" id="jcode-matchingProfile">
+                <div class="jcode-profile-button-single c-marron  shadow-grall">
+                   <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
+                </div>
+              </a>    
+        </div>
+
+
+        <div class="col-xs-12 col-sm-2 zero-padding hidden-md hidden-lg hidden-sm">
+              <a  class="jc-a j-cursor" id="jc-toggle-menuUser">
+                <div class="jcode-profile-button-single c-marron  shadow-grall">
+                   <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+                </div>
+              </a>    
+        </div>
+  </div>
+
+<?php endif ?>

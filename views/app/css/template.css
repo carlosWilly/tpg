@@ -1,0 +1,295 @@
+/*------------------------------------------*/
+/*zone-top-menu*/
+#zone-topmenu{
+	width: 100%;
+	padding:8px;
+	text-align: center;
+	background-color: #151412;
+	color:white;
+	position: fixed;
+	z-index: 900;
+}
+/*--------------*/
+/* jcode-sms*/
+#jcode-top-toggle{
+	position: fixed;
+	top:60px;
+	z-index: 800;
+	background-color: transparent;
+	
+}
+/*-----------------*/
+/* panel-jcode*/
+.panel-jcode{
+	border: none !important;
+}
+.panel-jcode-body{
+	background-color: #FFF !important;
+}
+.panel-jcode-heading{
+	background-color: #4ECDC4 !important;
+	color:white !important;
+}
+
+/*------------*/
+/*----chat-----*/
+.jcode-chat-emiter{
+	background-color: #eee;
+	padding:6px;
+	border-radius: 3px;
+	font-size: 13px;
+	color:#202020;
+	border: 1px dashed orange;
+
+}
+.jcode-chat-reciver{
+	background-color: #eee;
+	color:#333;
+	padding:6px;
+	border-radius: 5px;
+	font-size: 13px;
+}
+/*...............................*/
+.jcode-profile-button{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	padding: 5px;
+	border-bottom: 1px solid  #202020;
+	border-top: 1px solid yellow;
+	cursor:pointer;
+	color:#fafafa;
+}
+.jcode-profile-button > h6:hover{
+  color:#f73b3a;
+}
+.jcode-profile-button-single{
+	width: 100%;
+	height: 60px;
+	text-align: center;
+	border-radius:5px;
+	padding: 5px;
+	background-color: #202020;
+	
+}
+
+.jcode-profile-button-single i ,  img{
+  line-height: 45px;
+  vertical-align: middle;
+}
+
+.jcode-profile-button-left{
+	width: 45px;
+	height: 45px;
+	text-align: center;
+	padding: 5px;
+	border-radius:50%;
+	background-color: #202020;
+	margin: 0 auto;
+	margin-top:5px;
+	margin-bottom:5px;
+	font-size: 12px !important;
+}
+
+.jcode-profile-button-left i ,  img{
+  line-height: 26px;
+  vertical-align: middle;
+}
+.jcode-profile-button-left:hover  {
+   border:4px solid white;
+}
+.jcode-profile-button-left:hover > i{
+	color:#eee;
+}
+.zero-padding{
+	padding: 0px;
+}
+/* estilos para emcabezados y cjas principales de carga de controladores*/
+.btn-editing-portada{
+  cursor:pointer;color:white;background-color:rgba(0,0,0,0.5);position: absolute;top:10px;margin-left:10px;padding:10px;border: 1px solid silver;
+}
+
+.border-green{
+	border: 4px solid #4ECDC4;
+}
+.border-crimson{
+	border: 4px solid #8d8d8d;
+}
+.border-red{
+	border: 4px solid crimson;
+}
+.border-mostaza{
+	border: 4px solid #F1C40F;
+}
+.border-blue{
+	border: 4px solid #3498DB;
+}
+.border-morado{
+	border: 4px solid #9B59B6;
+}
+.border-white{
+	border: 4px solid #FFF;
+}
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.box-donw-shadow{
+	box-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+}
+.mensaje-autor{position: relative;}
+.mensaje-autor .contenido{
+	background-color: #fff;
+	padding: 5px;
+	border-radius:5px;
+	font-size: 13px;
+}
+.mensaje-autor p, .mensaje-amigo p{
+	margin-top: 5px;
+	font-style: italic;
+	font-size: 12px;
+}
+
+.img-autor .bocadillo{
+    position: absolute;
+    top: -30px;
+    left: 29px;
+	
+	border-top: 0px solid transparent;
+	border-bottom: 15px solid transparent;
+	border-right: 15px solid white;
+}
+
+.mensaje-amigo .contenido{
+	background-color: #3498DB;
+	padding: 5px;
+	border-radius:5px;
+	font-size: 13px;
+	color:#fff;
+}
+
+.img-amigo .bocadillo{
+	position: absolute;
+    margin-top: -30px;
+    margin-left: -15px;
+	width: 0; 
+	height: 0; 
+	border-top: 0px solid transparent;
+	border-bottom: 15px solid transparent;
+	border-left: 15px solid #3498DB;
+}
+/* templates  de los planes*/
+.jc-number-plans{
+	font-size: 19px;
+	font-weight: bold;
+	
+}
+/*estilos barra top user*/
+.jc-top-notification{
+	width: 30px;
+	height: 30px;
+	background-color: #5a5a58;
+	border-radius: 50%;
+}
+.jc-top-notification:hover{
+    background-color: #a7a7a7;
+}
+.jc-top-notification i{
+	line-height: 30px;
+	vertical-align: middle;
+	color:silver;
+}
+.poper-login{
+	background-color: #FFF !important;
+	padding: 0px;
+	color:#2a2a2a;
+
+}
+.poper-title{
+	background-color: #bcbcbc;
+}
+
+ul.jc-appTopMenu{
+ list-style: none;
+ margin: 0;
+ padding:0; 
+ margin-top: 5px;
+}
+ul.jc-appTopMenu li{
+   display: inline-table;
+   vertical-align: middle;
+   text-align: center;
+}
+#jcode-movil-chat{
+	padding:10px;
+	border: 2px solid #f7f7f7;
+	overflow-y:auto;width: 225px !important;
+	height: 260px;
+	color:#111111;
+	background-color: #bcbcbc;
+}
+
+.jc-movil-menu{
+	background-color: #bcbcbc;
+}
+.jc-movil-menu li {
+	width: 100%;
+	text-align: left !important;
+}
+
+#jcode-append-search{
+	position:absolute;
+	background-color: #fafafa;
+	width: 400px;
+	border-radius:0px 0px 5px 5px;
+	padding: 10px;
+}
+.jtopsearchDinamic {
+	height: 350px;
+	overflow-y: auto;
+}
+.jtopsearchStatic {
+	height: auto;
+}
+
+#jc-buttonMatch{
+	width: 100px;
+	height: 100px;
+	text-align: center !important;
+	border: 4px solid #ff333a;
+	background-color: #222222;
+
+}
+#jc-buttonMatch:hover{
+	border: 4px solid #2ecc71;
+
+
+}
+#jc-buttonMatch i {
+	color:white !important;
+	line-height: 100px;
+	vertical-align: middle;
+}
+.jc-circle-80{
+    width: 80px;
+    height: 80px;
+    background-color: #FAFAFA;
+    line-height:90px;
+    vertical-align: middle;
+    color:#202020;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.jc-circle-90{
+    width: 80px;
+    height: 80px;
+    background-color: #FAFAFA;
+    line-height:80px;
+    vertical-align: middle;
+    color:#202020;
+    text-align: center;
+    border: 2px dashed silver;
+}
+.pac-container{
+	
+	z-index: 9999;
+}

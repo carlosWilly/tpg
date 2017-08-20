@@ -1,0 +1,45 @@
+
+            <div  id="jc-cover"class="bg-img" style="background-image: url(<?='views/assets/images/users/'.$data[0]['p_image'].'' ?>)">
+                  <div class="col-xs-12 col-md-12">
+                          <?php if ($_SESSION[SESS_APP_ID]['u_id'] == $token): ?>
+                            <div class="col-xs-12">
+                            <div class="dropdown pull-right">
+                                <button style="background-color: transparent;color:#fafafa" class="btn btn-default"  id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-camera" aria-hidden="true"></i> Update cover photo</button>
+                                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                 <li><a href="javascript:void(0);" id="jc-portadaSelectPhoto">Select one of my images</a></li>
+                                 <li><a href="javascript:void(0);"  id="jc-portadaUploadPhoto">Upload an image</a></li>
+                                </ul>
+                            </div><br><br>
+                            
+                            </div>
+                           <?php endif ?>
+                           <?php if ($_SESSION[SESS_APP_ID]['u_id'] != $token): ?>
+                              <a href="info/<?= $token ?>" class="btn btn-success pull-right white shadow-grall btn-lg"><i class="fa fa-eye" aria-hidden="true"></i> <b>View profile</b></a>
+                           <?php endif ?>
+                  </div>
+                  <div class="col-xs-12">
+                          <div class="media" id="jc-perfil-barra">
+                           <div class="media-left">
+                               <img class="media-object" src="views/assets/images/zodiacal/<?= $data[0]['p_zicon'] ?>" class="img-responsive" width="100" style="background-color: white;border-radius: 50%;border:5px solid #FFF">
+                           </div>
+                           <div class="media-body white" style="padding:20px 10px;padding-left: 30px;">
+                             <h2 class="media-heading text-bordered" id="jcode-user-name" style="font-family: 'Montserrat'"><?= $data[0]['p_name']?></h2>
+                            <p class="text-bordered"> <span style="font-size: 19px;"><?= $data[0]['p_zname']?></span> &nbsp <i class="fa fa-street-view fa-2x"></i> <span style="font-size: 19px;"><?= $data[0]['p_pais'] ?></span> &nbsp  <i class="fa fa-circle-o-notch fa-2x"></i> <span style="font-size: 19px;"><?= $data[0]['p_age']?></span> age</p>
+                           </div>
+                         </div>
+                    </div>
+                    <div class="col-xs-12">
+                     <?php if (isset($_SESSION['info']) and $_SESSION[SESS_APP_ID]['u_id']== $token): ?>
+                        <div class="panel panel-default">
+                          <div class="panel-heading"><img src="views/assets/images/logo.png" width="40"> NOTIFICATIONS</div>
+                          <div class="panel-body">
+                            <?= $_SESSION['info']['message'] ?>
+                          </div>
+                        </div>
+                     <?php endif ?>
+                   </div>  
+                   <div class="clearfix"></div>
+            </div>
+            
+
+            

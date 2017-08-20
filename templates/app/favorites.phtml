@@ -1,0 +1,73 @@
+
+<?php $this->layout('heritage/appHeritage',['osearch'=>$osearch]) ?>
+<?php $this->start('styles') ?>
+  <link rel="stylesheet" href="views/popup/css/magnific-popup.css">
+<?php $this->stop() ?>
+
+<?php $this->start('header') ?>
+  <?= $this->insert('overall/apptopmenu',['top'=>$menuTop]) ?>
+   
+<?php $this->stop() ?>
+   
+<?php $this->start('container') ?>
+   
+  <div class="" id="content-data" style="background-color: transparent;overflow: hidden;">
+       
+         <div class="col-xs-12">
+              <br>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <h4><b>Favorites:</b></h4><br>
+                    <?php if ($fav['success']==1): ?>
+                          <?php foreach ($fav['data'] as $f): ?>
+                            <div class="col-xs-12 col-sm-6 col-md-4">
+                               <div class="media" style="border:1px dashed silver;border-radius: 5px;padding: 10px;">
+                                  <div class="media-left">
+                                      <a href="profile/<?= $f['u_id'] ?>">
+                                        <div style="width: 80px; height: 80px;background-image: url(views/assets/images/users/<?= $f['u_img'] =='' ? 'no-img.jpg' : $f['u_img'] ?>)" class="bg-img img-circle">
+                                        </div>
+                                      </a>
+                                  </div>
+                                  <div class="media-body">
+                                    <button class="btn btn-primary pull-right btn-xs jc-deleteFav"  data-token="<?= $f['u_id'] ?>" data-toggle="tooltip" data-placement="bottom" title="Remove from my favorites"><i class="fa fa-times"></i></button><br> 
+                     
+                                    <h5 class="media-heading" id="jcode-user-name"><strong><?= Func::cut($f['u_nombre'],18)?></strong></h5>
+                                    <ul style="list-style: none;padding: 0;margin: 0;">
+                                        <li style="display:inline-table;"><div class="btn-circle jcode-profile-chat b-greena white" data-token="<?= $f['u_id'] ?>" data-name="<?= Func::cut($f['u_nombre'],18)?>" data-toggle="tooltip" data-placement="bottom" title="Chat"><i class="fa fa-comments-o"></i></div></li>
+                                        <li style="display:inline-table;"><div class="btn-circle b-redb white" data-toggle="tooltip" data-placement="bottom" title="Start compatibility test"><i class="fa fa-heartbeat"></i></div></li>
+                                    <!--<button class="btn btn-default" id="jc-adbl" data-token="<?= $f['fa_id'] ?>" data-toggle="tooltip" data-placement="bottom" title="Add to my blacklist"><i class="fa fa-user-secret fa-lg" aria-hidden="true"></i></button>-->
+                                        <li style="display:inline-table;"><div class="btn-circle jc-preferences b-blue white" data-token="<?= $f['u_id'] ?>" data-toggle="tooltip" data-placement="bottom" title="Search preferences"><i class="fa fa-search"></i></div></li>
+                                    </ul>
+                                  </div>
+                                </div><br>
+                            </div>
+                          <?php endforeach ?>
+                      <?php else: ?>
+                        <div class="media">
+                          <div class="media-left media-middle">
+                            <i class="fa fa-star fa-5x" aria-hidden="true"></i>
+                          </div>
+                          <div class="media-body">
+                            <br>
+                            <h4 class="media-heading"><?= $fav['message'] ?></h4>
+                          </div>
+                        </div>
+                      <?php endif ?>
+                </div>
+              </div>
+
+         </div>
+
+  </div>
+
+
+   
+<?php $this->stop() ?>
+
+<?php $this->start('scripts') ?>
+  <!-- Magnific Popup core JS file -->
+  <script src="views/app/js/profile.js?<?= time() ?>"></script>
+  <script src="views/app/js/favoritos.js?<?= time() ?>"></script>
+  <script src="views/popup/js/jquery.magnific-popup.min.js"></script>
+
+<?php $this->stop() ?>

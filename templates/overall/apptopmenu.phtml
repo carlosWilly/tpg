@@ -1,0 +1,87 @@
+<div  id="zone-topmenu" class="shadow-grall">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-2 col-sm-8 col-md-8 col-lg-8">
+
+			    	  <div class="col-xs-12 col-sm-3 pull-left">
+			    	   
+
+			    	    <a href="home"><img src="views/assets/img/logo.png"  width="40" class="pull-left"></a>
+			    	    <?php if ($_SESSION[SESS_APP_ID]['u_data_profile']!='INCOMPLETE'): ?>
+
+			             <i  style="color:<?= $_SESSION[SESS_APP_ID]['u_account']['accountColor'] ?>" class="hidden-xs hidden-sm fa-3x fa fa-shield  pull-right j-cursor" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Have the <?= isset($_SESSION[SESS_APP_ID]['u_account']['tipoAccount']) ? $_SESSION[SESS_APP_ID]['u_account']['tipoAccount'] : 'FULLPACK'  ?> plan"></i>
+			    	    
+			    	     <?php endif ?>
+			    	     
+			    	  
+
+			    	  </div>
+					  <div class="hidden-xs col-xs-9 col-sm-9" style="position:relative">
+                        <?php if ($_SESSION[SESS_APP_ID]['u_data_profile']!='INCOMPLETE'): ?>    
+                            <input  id="jcode-top-search" type="text" style="width: 400px !important;" class="form-control" placeholder="Search all over the country">
+                            <div id="jcode-append-search" class="shadow-grall" class="jtopsearchStatic" style="color:#2a2a2a"></div>
+                        <?php endif ?>
+
+                      </div>
+			</div>
+
+			<div class="col-xs-10 col-sm-4 col-md-4 col-lg-4">
+				<ul class="jc-appTopMenu pull-right">
+				       <li>
+				       	  <div class="bg-img jc-top-notification" style="background-image: url(views/assets/images/users/<?= $_SESSION[SESS_APP_ID]['u_img'] ?>)"></div>
+				       </li>
+
+				       <li class="hidden-lg hidden-md hidden-sm  j-cursor dropdown" >
+	                         <div class="jc-top-notification" aria-hidden="true" id="drop4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></div>
+			                  
+			                  <ul class="dropdown-menu pull-right jc-movil-menu" aria-labelledby="drop4"> 
+			                     <li><a href="info/<?= $_SESSION[SESS_APP_ID]['u_id']?>"><i class="fa fa-info-circle" aria-hidden="true"></i> Information</a></li> 
+			                     <li><a href="photos/<?= $_SESSION[SESS_APP_ID]['u_id']?>"><i class="fa fa-picture-o" aria-hidden="true"></i> Photos</a></li> 
+			                     <li><a href="favorites"><i class="fa fa-star" aria-hidden="true"></i> Favorites</a></li> 
+			                     <li><a href="search"><i class="fa fa-search" aria-hidden="true"></i> Search</a></li> 
+			                     <li><a href="setup"><i class="fa fa-cog" aria-hidden="true"></i> Setup</a></li> 
+			                     <li role="separator" class="divider"></li>
+			                     <li><a href="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Close Session</a></li> 
+			                     <li><a href="help"><i class="fa fa-question" aria-hidden="true"></i> Help</a></li> 
+			                  </ul>
+	                    </li>
+				       
+				       <li class="text-xs hidden-sm hidden-xs hidden-md"><span style="padding-top: 20px;"><?= ucwords(Func::cut($_SESSION[SESS_APP_ID]['u_name'],15)) ?></span></li>
+				       
+				       <li class="hidden-sm hidden-md hidden-lg">
+				           <div data-toggle="tooltip" data-placement="bottom" title="Search" class="jc-top-notification j-cursor"><i class="fa fa-search" aria-hidden="true"></i></div>
+				       </li>
+				       <li>
+				           <div data-toggle="tooltip" data-placement="bottom" title="My Notifications" class="jc-top-notification j-cursor <?= $top['noti'] !=0 ? 'b-crimson' : ''  ?>" id="jcode_notification" ><i class="fa fa-bell yellowa" aria-hidden="true"></i></div>
+				       </li>
+
+
+                        
+
+
+                       <li class="hidden-xs hidden-sm">
+				           <div class="jc-top-notification  j-cursor" data-toggle="tooltip" data-placement="bottom" title="My Favorites" id="jcode_favoritos"><i class="fa fa-heart reda" aria-hidden="true"></i></div>
+				       </li>
+				       <li class="hidden-xs ">
+				           <div  id="jc-logout" class="jc-top-notification j-cursor" data-toggle="tooltip" data-placement="bottom" title="Close Sesion"><i class="fa fa-sign-out bluea" aria-hidden="true"></i></div>
+				       </li>
+				       
+				       
+
+				       
+
+	                    <li class="hidden-lg hidden-md  j-cursor dropdown" >
+
+	                          <div id="me<?= $_SESSION[SESS_APP_ID]['u_id']?>"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="jc-top-notification j-cursor <?= $top['msj'] !=0 ? 'b-crimson' : ''  ?>"><i class="fa fa-comments-o" aria-hidden="true"></i></div>
+		                  
+			                  <div id="jcode-movil-chat" class="row dropdown-menu pull-right" aria-labelledby="me<?= $_SESSION[SESS_APP_ID]['u_id']?>">
+
+			                     
+			                  </div>
+	                    </li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

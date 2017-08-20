@@ -1,0 +1,72 @@
+<?php $this->layout('heritage/heritage') ?>
+<?php $this->start('styles') ?>
+   <!-- REVOLUTION STYLE SHEETS -->
+    <link rel="stylesheet" type="text/css" href="views/revolution/css/settings.css">
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link rel="stylesheet" type="text/css" href="views/revolution/css/layers.css">
+    <!-- REVOLUTION NAVIGATION STYLES -->
+    <link rel="stylesheet" type="text/css" href="views/revolution/css/navigation.css">
+<?php $this->stop() ?>
+
+
+<?php $this->start('header') ?>
+     <?= $this->insert('overall/topmenu')?>
+<?php $this->stop() ?>
+
+
+<?php $this->start('container') ?>
+  <div id="jcode-container-front" class="bg-img">
+      <br>
+      <br>
+      <br>
+      <br>
+      <?php if (false === $pass): ?>
+        <center><div class="alert alert-danger">¡This link has expired!</div></center>
+      <?php else: ?>
+        <center><div class="alert alert-success">Your new password is <b><?= $pass ?></b> </div></center>
+      <?php endif ?>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+  </div>
+<?php $this->stop() ?>
+
+
+
+<?php $this->start('scripts') ?>
+  <!-- REVOLUTION JS FILES -->
+  <script type="text/javascript" src="views/app/js/login.js?<?= time() ?>"></script>
+  <!-- REVOLUTION JS FILES -->
+  <script type="text/javascript" src="views/revolution/js/jquery.themepunch.tools.min.js"></script>
+  <script type="text/javascript" src="views/revolution/js/jquery.themepunch.revolution.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXyWZhBuHgvIDIwvs83HTh8z1YkxOA-J0&libraries=places"
+        async defer></script>
+<?php $this->stop()  ?>
+
+<!--
+
+
+-->
+
+
+
+
+
+

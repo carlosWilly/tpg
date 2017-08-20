@@ -1,0 +1,22 @@
+
+<?php $this->layout('heritage/appHeritage',['osearch'=>$osearch]) ?>
+<?php $this->start('styles') ?>
+  <link rel="stylesheet" href="views/popup/css/magnific-popup.css">
+  <script type="text/javascript"> var portada=null;</script>
+<?php $this->stop() ?>
+
+<?php $this->start('header') ?>
+  <?= $this->insert('overall/apptopmenu',['top'=>$menuTop]) ?>
+   
+<?php $this->stop() ?>
+   
+<?php $this->start('container') ?>
+  <div id="content-data">
+    <?= $this->insert('overall/headerHeredable',['data'=>$data,'token'=>$token]) ?>
+  </div> 
+  <div class="clearfix"></div>
+<?php $this->stop() ?>
+
+<?php $this->start('scripts') ?>
+   <script src="views/app/js/profile.js?<?= time() ?>"></script>
+<?php $this->stop() ?>

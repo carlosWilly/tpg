@@ -1,0 +1,133 @@
+
+<?php $this->layout('heritage/appHeritage',['osearch'=>$osearch]) ?>
+<?php $this->start('styles') ?>
+  <link rel="stylesheet" href="views/popup/css/magnific-popup.css">
+<?php $this->stop() ?>
+
+<?php $this->start('header') ?>
+  <?= $this->insert('overall/apptopmenu',['top'=>$menuTop]) ?>
+   
+<?php $this->stop() ?>
+   
+<?php $this->start('container') ?>
+   
+  <div class="" id="content-data" style="background-color: transparent;overflow: hidden;">
+      <section id="jcode-profile-info" style="padding:20px;">
+      <div class="col-xs-12 col-sm-3">
+        <div class="thumbnail bg-img shadow-grall j-cursor text-center" id="jcode-photoPerfil" style="border:4px solid white;width: 170px;height: 170px;background-color: white;background-image: url(views/assets/images/users/<?= $_SESSION[SESS_APP_ID]['u_img'] ?>)"></div>
+      </div>
+      <div class="col-xs-12 col-sm-9">
+      <br>
+        <h2><?= $_SESSION[SESS_APP_ID]['u_name']?></h2>
+        <h4><?= $_SESSION[SESS_APP_ID]['u_email']?></h4>
+        <a href="setup" class="btn btn-default"><i class="fa fa-cog" aria-hidden="true"></i> Setup</a>
+        <a href="eprofile" class="btn btn-default"><i class="fa fa-user" aria-hidden="true"></i> Edit Profile</a>
+        <a href="blacklist" class="btn btn-default"><i class="fa fa-user-secret" aria-hidden="true"></i> My BlackList</a>
+        <button class="btn btn-default hidden-md hidden-lg" id="jcode-searchOptions-csetup"><i class="fa fa-search" aria-hidden="true"></i> Edit my search options</button>
+      </div>
+      <div class="col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-body">
+             Consumption details: <br><br>  
+             <?php $limite   = $_SESSION[SESS_APP_ID]['u_account']['u_limited']  ?>
+             <?php $consumo = $_SESSION[SESS_APP_ID]['u_account']['u_consumo'] ?>
+             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4">
+               <center><div class="jc-circle-90 img-circle b-greena white"><i class="fa fa-comments-o fa-2x" aria-hidden="true"></i></div> <b>Chat messages</b> <br> 
+               <span class="badge"><?= $data['acil'] ? 'Unlimited' : 'Max '.$limite['l_chats'] ?></span><span class="badge"><?= $data['acil'] ? '' : 'Now '.$consumo['c_chats'] ?></span></center><hr>
+             </div>
+             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4">
+                <center><div class="jc-circle-90 img-circle b-yellowa white"><i class="fa fa-star fa-2x" aria-hidden="true"></i></div> <b>Favorites</b> <br>
+                <span class="badge"><?= $data['acil'] ? 'Unlimited' : 'Max '.$limite['l_favor'] ?></span><span class="badge"><?= $data['acil'] ? '' : 'Now '.$consumo['c_favor'] ?></span></center><hr>
+             </div>
+             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4">
+                <center><div class="jc-circle-90 img-circle b-purple white"><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></div> Photos <br>
+                <span class="badge"><?= $data['acil'] ? 'Unlimited' : 'Max '.$limite['l_photo'] ?></span><span class="badge"><?= $data['acil'] ? '' : 'Now '.$consumo['c_photo'] ?></span></center><hr>
+             </div>
+
+             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4">
+                <center><div class="jc-circle-90 img-circle b-blue white"><i class="fa fa-users fa-2x" aria-hidden="true"></i></div> Friends in chat <br>
+                <span class="badge"><?= $data['acil'] ? 'Unlimited' : 'Max '.$limite['l_fchat'] ?></span><span class="badge"><?= $data['acil'] ? '' : 'Now '.$_SESSION[SESS_APP_ID]['u_account']['u_consumo']['c_fchat'] ?></span></center><hr>
+             </div>
+
+              <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4">
+                <center><div class="jc-circle-90 img-circle b-red white"><i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i></div> Test Compatibility <br>
+                <span class="badge"><?= $data['acil'] ? 'Unlimited' : 'Max '.$limite['l_match'] ?></span><span class="badge"><?= $data['acil'] ? '' : 'Now '.$_SESSION[SESS_APP_ID]['u_account']['u_consumo']['c_match'] ?></span></center><hr>
+             </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            Tipo de cuenta: <br><br> 
+            <div class="media">
+              <div class="media-left">
+                <center>
+                 <i style="color:<?= $_SESSION[SESS_APP_ID]['u_account']['accountColor'] ?>" class="fa-5x fa fa-shield  pull-right" aria-hidden="true"></i>
+                </center>
+              </div>
+              <div class="media-body">
+                <h4><?= $_SESSION[SESS_APP_ID]['u_account']['tipoAccount'] ?></h4>
+                <p>No pending payments</p>
+              </div>
+            </div>
+            <center>
+            <br>
+             <?= $data['button'] ?>
+            </center>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <b>Accounts Details:</b> <br><br>
+            <div class="col-xs-12 col-md-6">
+              <h5><b>DATE OF CONTRACT</b></h5>
+              <h5><kbd><?= $data['fecha_ini'] ?></kbd></h5>
+              <hr>
+              
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <h5><b>EXPIRATION</b></h5>
+              <h5><kbd><?= $data['fecha_end'] ?></kbd></h5>
+              <hr>
+              
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <h5><b>REMAINING DAYS</b></h5>
+              <h3><kbd><?= $data['fecha_act'] ?></kbd></h3>
+              <hr>
+
+              
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+      </section>
+  </div>
+
+
+   
+<?php $this->stop() ?>
+
+<?php $this->start('scripts') ?>
+  <!-- Magnific Popup core JS file -->
+  <script type="text/javascript">
+     var user = {
+      u_name:'<?= $user['data'][0]['u_nombres']?>',
+      u_lastname:'<?= $user['data'][0]['u_apellidos']?>',
+      u_email:'<?= $user['data'][0]['u_email']?>',
+      u_sexo:<?= $user['data'][0]['u_sexo'] ?>,
+      u_gename:'<?= $user['data'][0]['ge_name']?>',
+      u_horan:'<?= $user['data'][0]['u_horan']?>',
+      u_fecnac:'<?= $user['data'][0]['u_fecnac']?>'
+     }
+  </script>
+  <script src="views/app/js/setup.js?<?php echo time(); ?>"></script>
+  <script src="views/popup/js/jquery.magnific-popup.min.js"></script>
+<?php $this->stop() ?>

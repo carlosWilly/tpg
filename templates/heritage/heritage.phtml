@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <base href="<?= URL ?>" />
+    <title>PLAYGROUND | </title>
+    <!--meta standard-->
+    <meta name="description" content="">
+    <meta name="author"      content="<">
+
+    <!-- Open Graph data -->
+    <meta property="og:title"       content="" />
+    <meta property="og:type"        content="" />
+    <meta property="og:url"         content="" />
+    <meta property="og:image"       content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name"   content="" />
+
+    <!-- Bootstrap Core CSS -->
+    <link href="views/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="views/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="views/app/css/generales.css?<?php echo time() ?>" rel="stylesheet">
+    <link href="views/app/css/template.css?<?php echo time() ?>" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="views/jquery/jquery.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<?= $this->section('styles') ?>
+</head>
+<body>
+	<header>
+		<?= $this->section('header') ?>
+	</header>
+    <div style="width: 100%;height: 100%;background-color: #eee">
+	<?= $this->section('container') ?>
+    </div>
+	<footer style="width: 100%; background-color: #2c2b2a;color:#eee"  class="section-50-50">
+		<?= $this->section('footer') ?>
+               <div class="container">
+                  <div class="row">
+                    <div class="col-xs-12 col-md-4"><img src="views/assets/images/logo.png" width="80" class="img-reponsive"><strong> PLAYGROUND</strong></div>
+                  <div class="col-xs-12 col-md-8">
+                   <ul>
+                     <li style="display: inline-block;padding:10px;"><a  class="jc-a" href="javascript:;">Privacy policies</a></li>
+                     <li style="display: inline-block;padding:10px;"><a  class="jc-a" href="javascript:;">Cookies</a></li>
+                     <li style="display: inline-block;padding:10px;"><a  class="jc-a" href="javascript:;">Legal statement</a></li>
+                     <li style="display: inline-block;padding:10px;"><a  class="jc-a" href="javascript:;">Release notes</a></li>
+                   </ul>
+                      
+                  </div>
+                  
+                 </div>
+               </div>
+	</footer>
+
+	<!-- Bootstrap Core JavaScript -->
+    <script src="views/bootstrap/js/bootstrap.min.js"></script>
+     <script src="views/app/js/Connection.js?<?= time() ?>"></script>
+    <script src="views/app/js/helperMain.js?<?= time() ?>"></script>
+    <!-- Plugin JavaScript -->
+    <!--<div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.8";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>-->
+	<?= $this->section('scripts') ?>
+</body>
+</html>

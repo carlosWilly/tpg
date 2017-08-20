@@ -1,0 +1,156 @@
+
+<?php $this->layout('heritage/appHeritage',['osearch'=>$osearch]) ?>
+
+<?php $this->start('header') ?>
+  <?= $this->insert('overall/apptopmenu',['top'=>$menuTop]) ?>
+<?php $this->stop() ?>
+
+   
+<?php $this->start('container') ?>
+   
+  <div class="row" id="content-data">
+
+
+        <div class="col-xs-12">
+          <div style="background-color: transparent;padding:20px;">
+            <h2>Hello <span class="c-crimson"><?= $_SESSION[SESS_APP_ID]['u_name'] ?></span> </h2><h4>to take advantage of the maximum <span class="c-crimson">PLAYGROUND</span> we invite you to select one of our plans</h4>
+            <br><br>
+          </div>
+
+          <div style="background-color: #fafafa;padding:30px;">
+          <br><br>
+
+           <?php if (count($plans)>0 and $plans['type']==1): ?>
+
+             <div class="col-xs-12">
+             <?php foreach ($plans['array'] as $p): ?>
+                
+                <?php 
+                   switch ($p['ac_name']) {
+                     case 'FREE':
+                      $color = 'c-green-b';
+                       break;
+                     case 'LITE':
+                      $color = 'c-mostaza';
+                       break;
+                     
+                     case 'PRO I':
+                      $color = 'c-blue';
+                       break;
+                     case 'PRO II':
+                      $color = 'c-crimson';
+                       break;
+                   }
+
+                 ?>  
+
+                   <div class="col-xs-12 col-sm-4 ">
+                     <div class="panel panel-default">
+                       <div class="panel-body">
+
+                    
+                           <div class="col-xs-12 payments si">
+                              <center>
+                                <h1> <?= $p['ac_name'] ?></h1>
+                                <i class="fa-5x fa fa-shield <?= $color ?>" aria-hidden="true" data="<?= $color ?>"></i>
+                              </center>  
+                                <hr>
+                                <!---->
+                             
+                           </div>
+                           <div class="col-xs-12 payments">
+                               <div class="col-xs-12 col-xs-6">
+                                  <center data-toggle="tooltip" data-placement="bottom" title="Messages in chat por day">
+                                      <h4 class="jc-circle-90 img-circle"><i class="fa fa-comments-o fa-2x"></i></h4>
+                                      <p class="jc-number-plans <?= $color ?>"><?= $p['ac_msj'] == 0 ? 'Unlimited' : $p['ac_msj']  ?></p>
+                                  </center>
+                               </div>
+                               
+                               <div class="col-xs-12 col-sm-6">
+                                  <center data-toggle="tooltip" data-placement="bottom" title="People in your favorite list">
+                                       <h4 class="jc-circle-90 img-circle"><i class="fa fa-star fa-2x"></i></h4>       
+                                       <p class="jc-number-plans <?= $color ?>"><?= $p['ac_favorites'] == 0 ? 'Unlimited' : $p['ac_favorites'] ?></p>
+                                  </center>
+                                </div>    
+                               
+                                <div class="col-xs-12 col-sm-6">
+                                  <center data-toggle="tooltip" data-placement="bottom" title="Photos in your gallery">
+                                      <h4 class="jc-circle-90 img-circle"><i class="fa fa-picture-o fa-2x"></i></h4>     
+                                       <p class="jc-number-plans <?= $color ?>"><?= $p['ac_photos'] == 0 ? 'Unlimited' : $p['ac_photos']  ?></p>
+                                  </center>
+                                </div>                               
+                                
+
+                                <div class="col-xs-12 col-sm-6">
+                                  <center data-toggle="tooltip" data-placement="bottom" title="Friendships in chat">
+                                      <h4 class="jc-circle-90 img-circle"><i class="fa fa-users fa-2x"></i></h4>      
+                                      <p class="jc-number-plans <?= $color ?>"><?= $p['ac_friendchat'] == 0 ? 'Unlimited' : $p['ac_friendchat'] ?></p>
+                                  </center>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-6">
+                                  <center data-toggle="tooltip" data-placement="bottom" title="Test of zodiacal compatibility">
+                                      <h4 class="jc-circle-90 img-circle"><i class="fa fa-heart fa-2x"></i></h4>      
+                                      <p class="jc-number-plans <?= $color ?>"><?= $p['ac_matching'] == 0 ? 'Unlimited' : $p['ac_matching'] ?></p>
+                                  </center>
+                                </div>
+                                <div class="clearfix"></div>
+                             <br>
+                               <center><h2><span class=""><span><?= $p['ac_precio'] ?></span></span> $ <small>30 days</small></h2></center>
+                             <br>
+                             <center><button class="btn btn-default btn-lg jc-payment btn-danger" data-token='<?= Func::codeNumber($p['ac_id']) ?>'>PAY</button></center>
+                           </div>
+                           <div class="clearfix"></div><br>
+                       
+                        
+                       </div>
+                     </div>
+
+                   </div>
+
+
+                  
+              
+           
+              <?php endforeach ?>
+            </div>  
+           <?php else: ?>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <h4><b>You still have outstanding transactions, <small>sign up or cancel to continue.</small></b></h4>
+                  <?php foreach ($plans['array'] as $tr): ?>
+                      <div class="table">
+                        <table class="table table-striped">
+                          <tr >
+                            <th class="text-center">Plan name</th>
+                            <th class="text-center">Precio USS</th>
+                            <th class="text-center">Date</th>
+                            <th class="text-center">Satus</th>
+                            <th class="text-center">Actions</th>
+                          </tr>
+                          <tr class="text-center">
+                            <td><?= $tr['ac_name'] ?></td>
+                            <td><?= $tr['ac_precio'] ?></td>
+                            <td><?= date('m/d/Y',$tr['tr_time'])?></td>
+                            <td><?= $tr['tr_status'] == 0 ? 'Pending' : 'Concreted' ?></td>
+                            <td><a  href="<?= $tr['tr_url'] ?>" class="btn btn-primary">Pay</a>&nbsp<button data-token="<?= Func::codeNumber($tr['tr_id']) ?>" class="jc-removeTransaction btn btn-danger">Remove</button><td>
+                            
+                          </tr>
+                        </table>
+                      </div>
+                  <?php endforeach ?>
+                </div>
+              </div>
+           <?php endif ?>
+              <div class="clearfix"></div>
+          </div>  
+        </div>
+  </div>
+
+
+<?php $this->stop() ?>
+
+<?php $this->start('scripts') ?>
+  <!-- Magnific Popup core JS file -->
+  <script src="views/app/js/plans.js?<?= time()  ?>"></script>
+<?php $this->stop() ?>

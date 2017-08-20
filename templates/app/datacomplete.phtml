@@ -1,0 +1,133 @@
+
+<?php $this->layout('heritage/appHeritage',['osearch'=>$osearch]) ?>
+
+<?php $this->start('header') ?>
+  <?= $this->insert('overall/apptopmenu',['top'=>$menuTop]) ?>
+  
+<?php $this->stop() ?>
+
+   
+<?php $this->start('container') ?>
+  
+   <div class="col-xs-2"></div>
+
+   <div class="col-xs-8">
+     <br>
+     <div class="panel panel-default" >
+       <div class="panel-heading b-blue white">
+          <div >
+                <h1><?= ucwords($_SESSION[SESS_APP_ID]['u_name']) ?> :</h1>
+                <h3>We welcome you to a <b>PLAYGROUND</b>, a place where you will surely find the person you are looking for.</h3>
+           </div>
+       </div>
+       <div class="panel-body" style="padding-top:0px;">
+        <div class="row">
+           
+        </div>
+         <br><br>
+         <form role="form" id="jc-datacomplete">
+            <div class="col-xs-12 col-md-4"><label class="pull-right"><i class="fa fa-birthday-cake fa-3x"></i> </label></div>
+            <div class="col-xs-12 col-md-8">
+              <div class="row">
+               <div class="col-xs-12 col-md-8">
+                     <input type="text" class="form-control input-lg"  name="u_nacimiento" data-inputmask="'mask': '99/99/9999'" placeholder="mm/dd/yyyy">When you were born
+               </div>
+               <div class="col-xs-12 col-md-4">
+                     <input type="text" class="form-control input-lg" name="u_hora" data-inputmask="'mask': '99 : 99'" placeholder="hh:mm" rel="popover" data-container="body" data-toggle="popover" data-placement="bottom" title="Time of your birth" data-content="Please enter the time of your birth in 24 hours format, do not forget to include the two points, example 14:35">
+                     What time?
+                </div>
+              </div>
+            </div> 
+            <div class="clearfix"></div><br>
+            <div class="col-xs-12 col-md-4">
+              <label class="pull-right"><i class="fa fa-map-signs fa-3x" aria-hidden="true"></i></label> 
+            </div>
+            <div class="col-xs-12 col-md-8">
+              <input type="text" class="form-control input-lg" name="u_oldlocation" id="jc-reg-location_1" value="Manhattan, Nueva York, Estados Unidos" rel="popover" data-container="body" data-toggle="popover" data-placement="top" title="Where were you born?" data-content="Enter the city first followed by the state and the country, do not worry we will help you with the location">
+              Where were you born?
+            </div>
+
+            <div class="clearfix"></div><br>
+            <div class="col-xs-12 col-md-4">
+              <label class="pull-right"><i class="fa fa-map-marker fa-3x" aria-hidden="true"></i></label>
+            </div>
+            <div class="col-xs-12 col-md-8">
+              <input type="text" class="form-control input-lg" name="u_nowlocation" id="jc-reg-location_2" value="Manhattan, Nueva York, Estados Unidos" rel="popover" data-container="body" data-toggle="popover" data-placement="top" title="Where you live now?" data-content="Indicating the place where you live now allows us to find people who are in your same area; So you will have more chances to find what you are looking for">
+              where you live now?
+            </div>
+
+            <div class="clearfix"></div><br>
+            <div class="col-xs-12 col-md-4">
+              <label class="pull-right"><i class="fa fa-mars fa-3x" aria-hidden="true"></i><i class="fa fa-venus fa-3x" aria-hidden="true"></i></label>
+            </div>
+            <div class="col-xs-12 col-md-8">
+              <select  id="" class="form-control input-lg" name="u_gender">
+                  <option value="1">Male</option>
+                  <option value="2">Female</option>
+              </select>
+              What is your sex?
+            </div>
+
+            <div class="clearfix"></div><br>
+            <div class="col-xs-12 col-md-4">
+              <label class="pull-right"><i class="fa fa-search fa-3x" aria-hidden="true"></i></label>
+            </div>
+            <div class="col-xs-12 col-md-8">
+              <select  id="" class="form-control input-lg" name="u_option">
+                  <option value="1">looking for a friendship</option>
+                  <option value="2">looking for a relationship</option>
+                  <option value="3">looking for something casual</option>
+              </select>
+              What is your intention on the site
+            </div>
+
+            <div class="clearfix"></div><br>
+            <div class="col-xs-12 col-md-4">
+              <label class="pull-right"><i class="fa fa-question-circle fa-3x" aria-hidden="true"></i></label>
+            </div>
+            <div class="col-xs-12 col-md-8">
+              <select  id="" class="form-control input-lg" name="u_preference">
+                  <option value="2">with a Woman</option>
+                  <option value="1">with a Men</option>
+                  <option value="3">with a Both</option>
+              </select>
+              with whom?
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="col-xs-12">
+              <br><br>
+              <center><a id="jc-complete-send" class="btn btn-danger btn-lg white"><i class="fa fa-check-circle"></i> Complete information</a><br><br>
+              <p>by registering you agree to our terms of service and our privacy policy playground does not post or share your information. Privacy policy</p>
+              <br><br><br>
+              <h4>Thanks for joining!</h4>
+              <h5>Playground equipment</h5>
+              </center>
+            
+            </div>
+            <div class="clearfix"></div>
+             
+         </form>
+         
+       </div>
+
+     </div>
+   </div>
+  <div class="col-xs-2"></div>
+  <div class="clearfix"></div>*/
+
+<?php $this->stop() ?>
+
+<?php $this->start('scripts') ?>
+  <!-- Magnific Popup core JS file -->
+  <script src="views/inputmask/dist/jquery.inputmask.bundle.js"></script>
+  <script src="views/app/js/datacomplete.js?<?= time()  ?>"></script>
+      <!-- jquery.inputmask -->
+    <script>
+      $(document).ready(function() {
+        $(":input").inputmask();
+      });
+    </script>
+    <!-- /jquery.inputmask -->
+
+<?php $this->stop() ?>

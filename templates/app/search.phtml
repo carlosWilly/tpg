@@ -1,0 +1,112 @@
+
+<?php $this->layout('heritage/appHeritage',['osearch'=>$osearch]) ?>
+<?php $this->start('styles') ?>
+  <link rel="stylesheet" href="views/popup/css/magnific-popup.css">
+<?php $this->stop() ?>
+
+<?php $this->start('header') ?>
+  <?= $this->insert('overall/apptopmenu',['top'=>$menuTop]) ?>
+   
+<?php $this->stop() ?>
+   
+<?php $this->start('container') ?>
+   
+  <div id="content-data" >
+         <div class="col-xs-12">
+              <br>
+              <div class="panel panel-default shadow-grall">
+                 <div class="panel-body">
+                   <div class="col-xs-12">
+                      <div class="input-group">
+                          <span class="input-group-addon b-red white" id="basic-addon1"><i class="fa fa-user fa-lg"></i></span>
+                          <input id="s_name" type="text" class="form-control" name="s_name" placeholder="Search by name" style="border: 1px solid silver !important">
+                        </div>
+                   </div>
+                   <div class="clearfix"></div>
+                   <br>
+                   <form id="s_foption">
+                   <div class="col-xs-3">
+                       <label for="">Looking for:</label>
+                       <div class="input-group">
+                          <span class="input-group-addon b-greena white" id="basic-addon1"><i class="fa fa-smile-o fa-lg"></i></span>
+                          <select name="s_option" id="s_option" class="form-control" aria-describedby="basic-addon1" style="border:1px solid silver !important">
+                             <option value="1">Friendship</option>
+                             <option value="2">Relationship</option>
+                             <option value="3">Something casual</option>
+                           </select>
+                        </div>
+                   </div>
+                   <div class="col-xs-3">
+                         <label for="">Whith:</label>
+                          <div class="input-group">
+                            <span class="input-group-addon b-blue white" id="basic-addon2"><i class="fa fa-male fa-lg"></i><i class="fa fa-female fa-lg"></i></span>
+                            <select name="s_with" id="s_with" class="form-control" aria-describedby="basic-addon2" style="border:1px solid silver !important">
+                               <option   value="3">Both</option>
+                               <option   value="1">Male</option>
+                               <option   value="2">Female</option>
+                             </select>
+                          </div>
+                   </div>
+                   <div class="col-xs-3">
+                         <label for="">Zodiac sign:</label>
+                         <div class="input-group">
+                          <span class="input-group-addon b-yellowa white" id="basic-addon3"><i class="fa fa-sun-o fa-lg"></i></span>
+                          <select name="s_szinc" id="s_szinc" class="form-control" aria-describedby="basic-addon3" style="border:1px solid silver !important">
+                             <option value="0">Every</option>
+                             <?php if (count($z)>0): ?>
+                               <?php foreach ($z as $zs): ?>
+                                 <option value="<?= $zs['sz_id']?>"><?= $zs['sz_name']?></option>
+                               <?php endforeach ?>
+                             <?php endif ?>
+                           </select>
+                         </div>
+                   </div>
+                   <div class="col-xs-3">
+                         <label for="">Location</label>
+                         <div class="input-group">
+                          <span class="input-group-addon b-purple white" id="basic-addon4"><i class="fa fa-map-marker fa-lg"></i></span>
+                          <select name="s_location" id="s_location" class="form-control" aria-describedby="basic-addon4" style="border:1px solid silver !important">
+                             <option value="0">Every</option>
+                              <?php if (count($e)>0): ?>
+                               <?php foreach ($e as $es): ?>
+                                 <option value="<?= $es['st_id']?>"><?= $es['st_name']?></option>
+                               <?php endforeach ?>
+                             <?php endif ?>
+                           </select>
+                         </div>
+                   </div>
+                   </form>
+                 </div>
+              </div>
+              <div class="panel panel-default shadow-grall">
+                <div class="panel-body">
+                <!-- <input class="pull-right" type="text" placeholder="search by name" style="color:#2a2a2a;padding: 6px;">-->
+
+                  
+                  <blockquote>Attention <footer>If you can not find people on your first try, try changing your <b>search options</b>.</footer></blockquote> 
+                    <div id="loadOptionsSearch">
+
+                        
+                        
+                      </div>
+
+                      <div id="after-search"></div>
+                      <div class="clearfix"></div>
+                      <!--<center><button class="btn btn-default" id="jc-loadSearchController"><i class="fa fa-circle-o-notch" aria-hidden="true"></i> Load more results</button></center>-->
+                </div>
+              </div>
+         </div>
+  </div>
+
+
+   
+<?php $this->stop() ?>
+
+<?php $this->start('scripts') ?>
+  <!-- Magnific Popup core JS file -->
+  <script src="views/app/js/profile.js?<?= time() ?>"></script>
+  <script src="views/popup/js/jquery.magnific-popup.min.js"></script>
+  <script src="views/app/js/searchController.js?<?= time() ?>"></script>
+  <script> var controlOseach='';</script>
+
+<?php $this->stop() ?>

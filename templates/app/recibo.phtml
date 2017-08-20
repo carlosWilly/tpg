@@ -1,0 +1,44 @@
+
+<?php $this->layout('heritage/appHeritage',['osearch'=>$osearch,'ruter'=>true]) ?>
+
+<?php $this->start('header') ?>
+
+<?php $this->stop() ?>
+   
+<?php $this->start('single') ?>
+  <div class="col-xs-4"></div>
+  <div class="col-xs-4">
+    <div style="background-color: transparent;width: 100%;height: auto;padding:20px;border-radius: 10px;" class="shadow-grall">
+
+        <center>
+          <img src="views/assets/img/logo.png"  width="100">
+          <h1><?= strtoupper(APP).'<small> PAYMENT</small>' ?></h1>
+          <p><?= $message ?></p>
+          <?php if ($success ==1): ?>
+            
+          
+          <h3><b>Your account details</b></h3>
+          <hr>
+          <ul style="list-style: none;padding: 0;margin: 0;">
+            <li style="display: inline-table;"><b>Name: </b>  <kbd><?= $data['account'] ?></kbd></li>
+            <li style="display: inline-table;"><b>Favorites: </b>  <kbd><?= $data['favoritos'] ?></kbd></li>
+            <li style="display: inline-table;"><b>Messages: </b>  <kbd><?= $data['mensajes'] ?></kbd></li>
+            <li style="display: inline-table;"><b>Friends chat: </b> <kbd><?= $data['amigosChat'] ?></kbd></li>
+            <li style="display: inline-table;"><b>Matching: </b>  <kbd><?= $data['matching'] ?></kbd></li>
+            <li style="display: inline-table;"><b>Photos: </b>  <kbd><?= $data['fotos'] ?></kbd></li>
+          </ul>
+         <br>
+
+         <?php endif ?>
+          <center>
+           <a href="home" class="btn btn-primary btn-lg">GO TO MY ACCOUNT</a>
+          </center>
+        </center>
+        
+
+      
+     
+    </div>
+  </div>
+  <div class="col-xs-4"></div>
+<?php $this->stop() ?>
